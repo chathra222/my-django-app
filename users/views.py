@@ -9,6 +9,8 @@ def add_user(request):
         try:
             data = json.loads(request.body)
             username = data.get("username")
+            if not username:
+                return JsonResponse({"error": "Missing username"}, status=400)
             email = data.get("email")
             if not username or not email:
                 return JsonResponse({"error": "Missing username or email"}, status=400)
