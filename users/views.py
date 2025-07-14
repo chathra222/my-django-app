@@ -11,7 +11,6 @@ def add_user(request):
             username = data.get("username")
             if not username:
                 return JsonResponse({"error": "Missing username"}, status=400)
-            # Simulate saving user to database
             email = data.get("email")
             if not username or not email:
                 return JsonResponse({"error": "Missing username or email"}, status=400)
