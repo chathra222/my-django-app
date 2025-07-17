@@ -9,7 +9,6 @@ def add_user(request):
         try:
             data = json.loads(request.body)
             username = data.get("username")
-            # Check if username is provided 
             
             if not username:
                 return JsonResponse({"error": "Missing username"}, status=400)
