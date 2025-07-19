@@ -5,10 +5,12 @@ on:
     branches:
         - main
         - "feature/**"
+        - "unit-tests/**"
   pull_request:
     branches: 
         - main
         - "feature/**"
+        - "unit-tests/**"
 jobs:
   test:
     runs-on: ubuntu-latest
