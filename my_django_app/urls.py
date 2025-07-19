@@ -20,7 +20,6 @@ from django.urls import path
 from users.views import add_user, list_users
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/add-user/', add_user),
-    path('api/list-users/', list_users),
+    path('add-user/', add_user, name='add_user'),
+    path('list-users/', list_users, name='list_users'),
 ]
