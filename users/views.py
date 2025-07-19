@@ -48,3 +48,11 @@ def list_users(request):
     if request.method == "GET":
         return JsonResponse({"users": ["user1", "user2", "user3"]}, status=200)
     return JsonResponse({"error": "Invalid method"}, status=405)
+
+#write get user method
+@csrf_exempt
+def get_user(request, username):
+    if request.method == "GET":
+        # Here you would typically fetch the user from the database
+        return JsonResponse({"username": username, "email": f"{ username }@example.com"}, status=200)
+    return JsonResponse({"error": "Invalid method"}, status=405)    
