@@ -30,6 +30,20 @@ def delete_user(request, username):
         return JsonResponse({"message": f"User {username} deleted"}, status=200)
     return JsonResponse({"error": "Invalid method"}, status=405)
 
+#write update user method
+@csrf_exempt
+def update_user(request, username):
+    if request.method == "PUT":
+        try:
+            data = json.loads(request.body)
+            email = data.get("email")
+            if not email:
+                return JsonResponse({"error": "Missing email"}, status=400)
+            return JsonResponse({"message": f"User {username} updated", "email": email}, status=200)
+        except json.JSONDecodeError:
+            return JsonResponse({"error": "Invalid JSON"}, status=400)
+    return JsonResponse({"error": "Invalid method"}, status=405)
+
 #write list users method
 @csrf_exempt
 def list_users(request):
