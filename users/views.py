@@ -28,6 +28,7 @@ def delete_user(request, username):
         # Here you would typically delete the user from the database
         return JsonResponse({"message": f"User {username} deleted"}, status=200)
     return JsonResponse({"error": "Invalid method"}, status=405)
+
 #write update user method
 @csrf_exempt
 def update_user(request, username):
